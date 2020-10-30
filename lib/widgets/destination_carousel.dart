@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui_starter/models/destination_model.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DestinationCarousel extends StatelessWidget {
   // TODO; Add an action to the gesture detector
@@ -108,7 +109,33 @@ class DestinationCarousel extends StatelessWidget {
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [],
+                                    children: [
+                                      Text(
+                                        destination.city,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 24.0,
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1.2),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            FontAwesomeIcons.locationArrow,
+                                            size: 10,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 5.0,
+                                          ),
+                                          Text(
+                                            destination.country,
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )
+                                        ],
+                                      )
+                                    ],
                                   ))
                             ],
                           ),
