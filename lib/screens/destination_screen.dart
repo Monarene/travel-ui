@@ -121,8 +121,103 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     Activity activity = widget.destination.activities[index];
                     return Stack(
                       children: [
-                        Text("I will continue soon"),
-                        Text("be a man")
+                        Container(
+                          margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+                          height: 170,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(100, 20, 20, 20),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 120,
+                                      child: Text(
+                                        activity.name,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                      ),
+                                    ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          '\$${activity.price}',
+                                          style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        Text(
+                                          "per pax",
+                                          style: TextStyle(color: Colors.grey),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Text(
+                                  activity.type,
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                                _buildRatingStars(activity.rating),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(5.0),
+                                      width: 70,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).accentColor,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(activity.startTimes[0]),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.all(5.0),
+                                      width: 70,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).accentColor,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(activity.startTimes[1]),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                            left: 20.0,
+                            top: 15,
+                            bottom: 15,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image(
+                                width: 110,
+                                image: AssetImage(activity.imageUrl),
+                                fit: BoxFit.cover,
+                              ),
+                            ))
                       ],
                     );
                   }))
