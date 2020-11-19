@@ -207,7 +207,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           ),
                         ),
                         Positioned(
-                            left: 20.0,
+                            left: 20.5,
                             top: 15,
                             bottom: 15,
                             child: ClipRRect(
